@@ -706,7 +706,7 @@
                         <div class="form-row">
                             <label for="contactMobile">Mobile Number</label>
                             <input type="tel" id="contactMobile" formControlName="mobileNumber"
-                                placeholder="9876543210" autocomplete="tel-national" maxlength="15" inputmode="numeric"
+                                placeholder="Mobile Number" autocomplete="tel-national" maxlength="15" inputmode="numeric"
                                 (input)="sanitizeMobileNumber($event)"
                                 [class.invalid]="showError('mobileNumber')" />
                             @if (showError('mobileNumber')) {
