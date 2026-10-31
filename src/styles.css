@@ -1,0 +1,146 @@
+/* Shared by both pages: tokens, reset, body, grid background, cursor, scanline, particles */
+:root {
+    --neon-cyan: #00f5ff;
+    --neon-purple: #b400ff;
+    --neon-green: #00ff88;
+    --neon-orange: #ff6b00;
+    --neon-yellow: #ffe600;
+    --deep-bg: #020818;
+    --panel-bg: rgba(5, 20, 50, 0.7);
+    --panel-border: rgba(0, 245, 255, 0.15);
+    --panel-border-glow: rgba(0, 245, 255, 0.4);
+    --panel-glow: rgba(0, 245, 255, 0.4);
+    --text-primary: #e8f4ff;
+    --text-sec: rgba(180, 210, 255, 0.7);
+    --text-secondary: rgba(180, 210, 255, 0.7);
+    --text-dim: rgba(100, 150, 200, 0.5);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--deep-bg);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    cursor: none;
+}
+
+/* CURSOR */
+.cursor {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--neon-cyan);
+    pointer-events: none;
+    z-index: 99999;
+    transition: transform .1s ease;
+    mix-blend-mode: screen;
+    box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+}
+
+.cursor-ring {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 245, 255, .4);
+    pointer-events: none;
+    z-index: 99998;
+    transition: transform .15s ease, width .2s, height .2s;
+}
+
+/* GRID BG */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(rgba(0, 245, 255, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 245, 255, .03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+    pointer-events: none;
+    animation: gridShift 20s linear infinite;
+}
+
+@keyframes gridShift {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 60px 60px;
+    }
+}
+
+/* SCANLINE */
+.scanline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(0, 245, 255, .25), transparent);
+    z-index: 9997;
+    animation: scan 10s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scan {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: 100vh;
+    }
+}
+
+/* PARTICLES */
+.particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--neon-cyan);
+    border-radius: 50%;
+    animation: float linear infinite;
+    opacity: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: .6;
+    }
+
+    90% {
+        opacity: .3;
+    }
+
+    100% {
+        transform: translateY(-10vh) translateX(30px);
+        opacity: 0;
+    }
+}

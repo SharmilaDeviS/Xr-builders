@@ -1,0 +1,1 @@
+Copy your original 'image' folder contents here (XR-logo.png) -> public/image/XR-logo.png

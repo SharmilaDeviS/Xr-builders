@@ -1,0 +1,445 @@
+<div class="cursor" #cursor></div>
+<div class="cursor-ring" #cursorRing></div>
+<div class="particles">
+    @for (p of particles; track $index) {
+    <div class="particle" [style]="p"></div>
+    }
+</div>
+
+<!-- ── NAV ── -->
+<nav id="mainNav" [style.box-shadow]="scrolled ? '0 4px 40px rgba(0,0,0,.5)' : 'none'">
+    <a routerLink="/" class="nav-logo">
+        <div class="nav-logo-icon">VR</div>
+        <div>
+            <div class="nav-logo-text">VR WELDING SIMULATOR</div>
+            <!-- <div class="nav-logo-sub">Senior XR Developer</div> -->
+        </div>
+    </a>
+    <div class="nav-right">
+        <div class="nav-store-badge">Now on Meta Quest Store</div>
+        <button type="button" routerLink="/" class="back-btn"><span class="back-arrow">←</span> Back to Main</button>
+    </div>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero" id="hero">
+    <div class="hero-orb"></div>
+    <div class="hero-orb-2"></div>
+
+    <!-- Welding torch SVG -->
+    <div class="hero-device">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Torch body -->
+            <rect x="42" y="55" width="16" height="34" rx="5" fill="rgba(0,245,255,0.1)" stroke="rgba(0,245,255,0.6)" stroke-width="1.5" />
+            <!-- Torch nozzle -->
+            <rect x="44" y="35" width="12" height="22" rx="4" fill="rgba(255,107,0,0.15)" stroke="rgba(255,107,0,0.7)" stroke-width="1.5" />
+            <!-- Tip -->
+            <polygon points="50,8 45,35 55,35" fill="rgba(255,230,0,0.2)" stroke="rgba(255,230,0,0.7)" stroke-width="1" />
+            <!-- Welding arc/flame -->
+            <ellipse cx="50" cy="10" rx="5" ry="8" fill="rgba(255,200,0,0.4)" opacity="0.8">
+                <animate attributeName="ry" values="8;12;8" dur="0.6s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.8;0.4;0.8" dur="0.4s" repeatCount="indefinite" />
+            </ellipse>
+            <ellipse cx="48" cy="8" rx="3" ry="6" fill="rgba(255,107,0,0.6)">
+                <animate attributeName="ry" values="6;10;6" dur="0.5s" repeatCount="indefinite" />
+            </ellipse>
+            <!-- Sparks -->
+            <circle cx="60" cy="14" r="2" fill="rgba(255,200,0,0.8)"><animate attributeName="cy" values="14;5;14" dur="0.7s" repeatCount="indefinite" /><animate attributeName="opacity" values="0.8;0;0.8" dur="0.7s" repeatCount="indefinite" /></circle>
+            <circle cx="40" cy="18" r="1.5" fill="rgba(255,150,0,0.8)"><animate attributeName="cy" values="18;8;18" dur="0.9s" repeatCount="indefinite" /><animate attributeName="opacity" values="0.8;0;0.8" dur="0.9s" repeatCount="indefinite" /></circle>
+            <circle cx="65" cy="22" r="1.5" fill="rgba(255,230,0,0.8)"><animate attributeName="cy" values="22;12;22" dur="0.6s" repeatCount="indefinite" /><animate attributeName="opacity" values="0.8;0;0.8" dur="0.6s" repeatCount="indefinite" /></circle>
+            <!-- Grip lines -->
+            <line x1="42" y1="65" x2="58" y2="65" stroke="rgba(0,245,255,0.3)" stroke-width="1" />
+            <line x1="42" y1="70" x2="58" y2="70" stroke="rgba(0,245,255,0.3)" stroke-width="1" />
+            <line x1="42" y1="75" x2="58" y2="75" stroke="rgba(0,245,255,0.3)" stroke-width="1" />
+        </svg>
+    </div>
+
+    <div class="hero-badge">🔥 Product Spotlight · Meta Quest Store</div>
+    <h1>VR WELDING SIMULATOR</h1>
+    <div class="hero-subtitle">Immersive · Safe · Smart Industrial Training</div>
+
+    <p class="hero-bio">
+        A <span>VR-based Welding Training Simulator</span> designed to train students and operators in welding safety,
+        machine setup, and welding technique — in a <span>safe, cost-effective virtual environment</span>.
+        No gas, no sparks, no risk — just high-fidelity skill development with real-time performance intelligence.
+    </p>
+
+    <div class="platform-row">
+        <div class="plat-tag cyan">🥽 Meta Quest 2 / 3 / 3S / Pro</div>
+        <div class="plat-tag orange">🤝 Controllers + Hand Tracking</div>
+        <div class="plat-tag green">📊 Analytics + Reports · NEW</div>
+    </div>
+
+    <div class="hero-stats">
+        <div class="hero-stat">
+            <span class="num">3</span>
+            <span class="lbl">Training Modules</span>
+        </div>
+        <div class="hero-stat">
+            <span class="num">3</span>
+            <span class="lbl">Welding Techniques</span>
+        </div>
+        <div class="hero-stat">
+            <span class="num">Real-Time</span>
+            <span class="lbl">Analytics</span>
+        </div>
+        <div class="hero-stat">
+            <span class="num">12$</span>
+            <span class="lbl">Lite — Meta Store</span>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════ KEY FEATURES ══════════════════ -->
+<section>
+    <div class="container">
+        <div class="section-tag reveal">Core Capabilities</div>
+        <h2 class="section-title reveal">Key <span class="orange">Features</span></h2>
+        <p class="section-desc reveal">Every module is designed around real-world industrial training workflows — from PPE discipline to live welding execution and certified assessment.</p>
+
+        <div class="features-grid">
+
+            <div class="panel feat-card reveal" style="animation-delay:0.05s">
+                <div class="corner-tl"></div>
+                <span class="feat-num">01 / SAFETY</span>
+                <span class="feat-icon">🦺</span>
+                <h3>PPE &amp; Safety Training</h3>
+                <p>Mandatory PPE collection with guided voice instructions before entering the welding zone — building safe habits from the very start.</p>
+            </div>
+
+            <div class="panel feat-card reveal" style="animation-delay:0.10s">
+                <div class="corner-tl"></div>
+                <span class="feat-num">02 / AWARENESS</span>
+                <span class="feat-icon">⚠️</span>
+                <h3>Hazard Identification</h3>
+                <p>Interactive detection of workplace hazards throughout the environment, teaching trainees to recognise and respond to real-world risks.</p>
+            </div>
+
+            <div class="panel feat-card reveal" style="animation-delay:0.15s">
+                <div class="corner-tl"></div>
+                <span class="feat-num">03 / INSPECTION</span>
+                <span class="feat-icon">🔍</span>
+                <h3>Machine Defect Identification</h3>
+                <p>Visual highlighting of machine defects with detailed safety explanations — teaching critical inspection skills before any operation begins.</p>
+            </div>
+
+            <div class="panel feat-card reveal" style="animation-delay:0.20s">
+                <div class="corner-tl"></div>
+                <span class="feat-num">04 / SETUP</span>
+                <span class="feat-icon">⚙️</span>
+                <h3>Complete Machine Setup</h3>
+                <p>Step-by-step power control, amperage setting, polarity checking using a virtual multimeter, and proper welding gun and clamp connections.</p>
+            </div>
+
+            <div class="panel feat-card reveal" style="animation-delay:0.25s">
+                <div class="corner-tl"></div>
+                <span class="feat-num">05 / CORE SKILL</span>
+                <span class="feat-icon">🔧</span>
+                <h3>Realistic Welding Simulation</h3>
+                <p>Live immersive welding experience with real-time tracking of welding speed, arc distance, and electrode angle for precise skill correction.</p>
+            </div>
+
+            <div class="panel feat-card reveal" style="animation-delay:0.30s">
+                <div class="corner-tl"></div>
+                <span class="feat-num">06 / AUDIO</span>
+                <span class="feat-icon">🎙️</span>
+                <h3>Voice Guidance</h3>
+                <p>Step-by-step audio narration throughout every module — trainees can focus on the task without needing to read any on-screen text.</p>
+            </div>
+
+            <div class="panel feat-card reveal" style="animation-delay:0.35s">
+                <div class="corner-tl"></div>
+                <span class="feat-num">07 / IMMERSION</span>
+                <span class="feat-icon">🤝</span>
+                <h3>Haptics &amp; Spatial Audio</h3>
+                <p>Immersive haptic feedback and spatial audio mimicking the physical sensations and sounds of actual welding, deepening the learning experience.</p>
+            </div>
+
+            <div class="panel feat-card reveal" style="animation-delay:0.40s">
+                <div class="corner-tl"></div>
+                <span class="feat-num">08 / INPUT</span>
+                <span class="feat-icon">🖐️</span>
+                <h3>Controller &amp; Hand Tracking</h3>
+                <p>Full support for both Meta Quest controllers and natural hand-tracking — making the simulator accessible and comfortable for all trainees.</p>
+            </div>
+
+            <!-- NEW FEATURE CARD -->
+            <div class="panel feat-card orange reveal" style="animation-delay:0.45s; border-color:rgba(255,107,0,0.25);">
+                <div class="corner-tl orange"></div>
+                <div class="corner-br orange"></div>
+                <span class="feat-num">09 / NEW IN LITE</span>
+                <span class="feat-icon">📊</span>
+                <h3>Real-Time Analytics Dashboard</h3>
+                <p>Live tracking of welding speed, arc distance, electrode angle, and accuracy score — displayed on an in-session dashboard so trainees can self-correct in real time.</p>
+                <span class="new-badge">Recently Added</span>
+            </div>
+
+            <!-- NEW FEATURE CARD -->
+            <div class="panel feat-card green reveal" style="animation-delay:0.50s; border-color:rgba(0,255,136,0.25); grid-column:2/4;">
+                <div class="corner-tl green"></div>
+                <div class="corner-br green"></div>
+                <span class="feat-num">10 / NEW IN LITE</span>
+                <span class="feat-icon">📋</span>
+                <h3>Auto Report Generation &amp; Certification</h3>
+                <p>Upon completing a welding session, the simulator automatically generates a detailed performance report with per-metric scores, pass/fail status, and a personalised certificate with the trainee's name and roll number — ready for institutional use and record-keeping.</p>
+                <span class="new-badge">Recently Added</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════ ANALYTICS SHOWCASE ══════════════════ -->
+<section class="analytics-section">
+    <div class="container">
+        <div class="analytics-layout">
+
+            <!-- Live dashboard mockup -->
+            <div class="dashboard-visual reveal">
+                <div class="dash-header">
+                    <div class="dash-dot r"></div><div class="dash-dot y"></div><div class="dash-dot g"></div>
+                    <span class="dash-title">Welding Analytics — Live Session</span>
+                    <span class="dash-live-dot">Live</span>
+                </div>
+                <div class="dash-body">
+
+                    <div class="metric-row">
+                        <div class="metric-label"><span>Welding Speed</span><span class="metric-val">78%</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width:78%; animation-duration:1.8s;"></div></div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label"><span>Arc Distance Accuracy</span><span class="metric-val" style="color:var(--neon-orange)">62%</span></div>
+                        <div class="metric-bar"><div class="metric-fill orange" style="width:62%; animation-duration:2.2s;"></div></div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label"><span>Electrode Angle</span><span class="metric-val" style="color:var(--neon-green)">91%</span></div>
+                        <div class="metric-bar"><div class="metric-fill green" style="width:91%; animation-duration:1.5s;"></div></div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label"><span>Overall Accuracy</span><span class="metric-val">85%</span></div>
+                        <div class="metric-bar"><div class="metric-fill" style="width:85%; animation-duration:2s;"></div></div>
+                    </div>
+
+                    <div class="score-row">
+                        <div class="score-chip cyan">
+                            <span class="score-num">85</span>
+                            <span class="score-lbl">Overall Score</span>
+                        </div>
+                        <div class="score-chip green">
+                            <span class="score-num">PASS</span>
+                            <span class="score-lbl">Status</span>
+                        </div>
+                        <div class="score-chip orange">
+                            <span class="score-num">4:32</span>
+                            <span class="score-lbl">Session Time</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-strip">
+                    <span class="report-strip-icon">📄</span>
+                    <span class="report-strip-text">Performance Report + Certificate Ready</span>
+                    <span class="report-strip-btn">Generate →</span>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="analytics-content reveal">
+                <div class="section-tag">NEW IN LITE VERSION</div>
+                <h2 class="section-title" style="margin-bottom:12px;">Real-Time <span>Performance Analytics</span></h2>
+                <p style="font-size:16px; line-height:1.85; color:var(--text-secondary); margin-bottom:0;">
+                    The latest update to the Lite version introduces a fully integrated analytics engine that tracks every aspect of the welding session — giving trainees and instructors actionable insight, not just a score.
+                </p>
+
+                <ul class="analytics-points">
+                    <li><div><strong>Welding Speed Tracking</strong> — Detects if the torch is moved too fast or slow against the ideal range, correcting muscle memory in real time.</div></li>
+                    <li><div><strong>Arc Distance Monitoring</strong> — Measures torch-to-workpiece gap continuously, with live visual feedback when outside the safe zone.</div></li>
+                    <li><div><strong>Electrode Angle Analysis</strong> — Tracks tilt and travel angle throughout the bead, scoring adherence to correct posture.</div></li>
+                    <li><div><strong>Accuracy Score &amp; Grade</strong> — Weighted composite score across all metrics, displayed as a grade and pass/fail status at session end.</div></li>
+                    <li><div><strong>Session Timestamp &amp; Duration</strong> — Every session is logged with start time, duration, and completion status for record-keeping.</div></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════ REPORT GENERATION ══════════════════ -->
+<section class="report-section">
+    <div class="container">
+        <div class="report-layout">
+
+            <div class="reveal">
+                <div class="section-tag green">NEW IN LITE VERSION</div>
+                <h2 class="section-title" style="margin-bottom:12px;">Auto <span class="green">Report Generation</span></h2>
+                <p class="section-desc" style="margin-bottom:40px;">
+                    After every completed session, the simulator instantly generates a structured performance report and a personalised certificate — making it classroom-ready and institution-compliant out of the box.
+                </p>
+                <ul class="analytics-points">
+                    <li><div><strong>Per-Metric Breakdown</strong> — Detailed scores for speed, arc distance, angle, and accuracy with visual pass/fail indicators per parameter.</div></li>
+                    <li><div><strong>Trainee Name &amp; Roll Number</strong> — Reports are personalised with the trainee's identity, making them suitable for institutional records and evaluations.</div></li>
+                    <li><div><strong>Digital Certificate</strong> — Auto-generated certificate awarded on passing, ready for print or institutional submission.</div></li>
+                    <li><div><strong>Instructor Dashboard Ready</strong> — Reports are structured for easy review by instructors, enabling batch evaluation across cohorts.</div></li>
+                </ul>
+            </div>
+
+            <div class="report-cards reveal">
+                <div class="panel r-card">
+                    <div class="corner-tl green"></div>
+                    <span class="r-card-icon">📊</span>
+                    <h4>Per-Metric Score Card</h4>
+                    <p>Individual score for each tracked welding parameter with percentage and pass/fail per criteria.</p>
+                </div>
+                <div class="panel r-card">
+                    <div class="corner-tl green"></div>
+                    <span class="r-card-icon">🏅</span>
+                    <h4>Personalised Certificate</h4>
+                    <p>Branded certificate with trainee name, roll number, score, and completion date — printable quality.</p>
+                </div>
+                <div class="panel r-card">
+                    <div class="corner-tl green"></div>
+                    <span class="r-card-icon">🗂️</span>
+                    <h4>Session History Log</h4>
+                    <p>All sessions are logged with timestamps and scores, enabling progress tracking across multiple attempts.</p>
+                </div>
+                <div class="panel r-card">
+                    <div class="corner-tl green"></div>
+                    <span class="r-card-icon">🏫</span>
+                    <h4>Institutional Readiness</h4>
+                    <p>Designed for ITIs, engineering colleges, and training institutes — supports roll numbers and batch evaluations.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════ SUITABLE FOR ══════════════════ -->
+<section>
+    <div class="container">
+        <div class="section-tag purple reveal">Target Audience</div>
+        <h2 class="section-title reveal">Suitable <span class="purple">For</span></h2>
+        <p class="section-desc reveal">Built for institutions, training centres, and enterprises that want scalable, measurable welding skill development without the cost and risk of live training.</p>
+
+        <div class="audience-grid">
+            <div class="panel aud-card reveal">
+                <div class="corner-tl purple"></div>
+                <span class="aud-icon">🎓</span>
+                <h3>Engineering Colleges &amp; ITIs</h3>
+                <p>Supplement practical labs with unlimited virtual practice — ideal for large cohorts with limited equipment, consumables, or lab time.</p>
+            </div>
+            <div class="panel aud-card reveal">
+                <div class="corner-tl purple"></div>
+                <span class="aud-icon">🏭</span>
+                <h3>Welding Training Institutes</h3>
+                <p>Accelerate foundational skill-building before students touch real equipment — reducing material costs and safety incidents from day one.</p>
+            </div>
+            <div class="panel aud-card reveal">
+                <div class="corner-tl purple"></div>
+                <span class="aud-icon">🔩</span>
+                <h3>Manufacturing Companies</h3>
+                <p>Run in-house skill training and recertification programmes for operators without any downtime on the production floor.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════ META STORE ══════════════════ -->
+<section class="meta-section">
+    <div class="container">
+        <div class="meta-layout">
+
+            <div class="reveal">
+                <div class="section-tag">Available Now</div>
+                <h2 class="section-title" style="margin-bottom:14px;">Live on <span>Meta Quest Store</span></h2>
+                <p style="font-size:16px; line-height:1.85; color:var(--text-secondary); margin-bottom:28px;">
+                    The Lite version of the VR Welding Simulator is available on the Meta Horizon Store — 10$ to download for all Meta Quest headsets. It includes the core welding module with the newly added real-time analytics and report generation system.
+                </p>
+                <ul class="meta-content-list">
+                    <li><div><strong>Platform:</strong> Meta Quest 2, Quest 3, Quest 3S, Quest Pro — Standalone</div></li>
+                    <li><div><strong>Input:</strong> Meta Quest Controllers + Hand Tracking</div></li>
+                    <li><div><strong>New in Lite:</strong> Real-Time Analytics + Auto Report Generation</div></li>
+                    <li><div><strong>Price:</strong> 10$ to Download on Meta Horizon Store</div></li>
+                    <li><div><strong>Enterprise Version:</strong> Full modules available — contact for licensing</div></li>
+                </ul>
+            </div>
+
+            <div class="panel meta-panel reveal">
+                <div class="corner-tl"></div>
+                <div class="corner-br"></div>
+                <div class="meta-logo">META QUEST</div>
+                <div class="meta-subtitle">Horizon Store · Verified App</div>
+                <div class="meta-app-title">Welding Simulator</div>
+                <div class="meta-app-sub">Lite Version ·  Download</div>
+                <div class="meta-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="meta-rating-text">Meta Horizon Store</span>
+                </div>
+                <a href="https://www.meta.com/en-gb/experiences/welding-simulator/25198208019849103/"
+                   class="meta-store-btn" target="_blank">
+                    🥽 &nbsp; Download on Meta
+                </a>
+                <div class="meta-free-tag">  Meta Quest 2 / 3 / 3S / Pro</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══════════════════ CTA ══════════════════ -->
+<section class="cta-section">
+    <div class="panel cta-box reveal">
+        <div class="corner-tl"></div>
+        <div class="corner-br"></div>
+        <h2>Request a <span>Live Demo</span></h2>
+        <p>
+            I'd be happy to demonstrate the full enterprise version and discuss how the simulator — including the analytics and reporting system — can be tailored to your institution's training requirements. Reach out and let's explore how VR can transform your welding programme.
+        </p>
+        <div class="cta-buttons">
+            <a href="https://wa.me/918248110713" target="_blank" class="btn-primary">💬 WhatsApp Me</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=naveen120197@gmail.com" target="_blank" class="btn-secondary">📧 Send Email</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <h3>Naveen Kumar S</h3>
+            <p>Senior XR Developer · CTLVS, IIT Kharagpur</p>
+        </div>
+        <div class="footer-contacts">
+            <div class="fc-item">
+                <span>✉️</span>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=naveen120197@gmail.com" target="_blank">naveen120197&#64;gmail.com</a>
+            </div>
+            <div class="fc-item">
+                <span>📞</span>
+                <a href="tel:+918248110713">+91 82481 10713</a>
+            </div>
+            <div class="fc-item">
+                <span style="color:#25D366;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" /></svg>
+                </span>
+                <a href="https://wa.me/918248110713" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-divider" style="max-width:1200px;margin:28px auto 20px;"></div>
+    <div class="footer-bottom" style="max-width:1200px;margin:0 auto;">
+        <span>© 2025 Naveen Kumar S — Senior XR Developer, CTLVS IIT Kharagpur</span>
+        <!--<span>Built with <span>■</span> at IIT Kharagpur</span>-->
+    </div>
+</footer>

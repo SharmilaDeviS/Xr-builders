@@ -1,0 +1,799 @@
+<div class="scanline"></div>
+<div class="cursor" #cursor></div>
+<div class="cursor-ring" #cursorRing></div>
+<div class="particles">
+    @for (p of particles; track $index) {
+    <div class="particle" [style]="p"></div>
+    }
+</div>
+
+<!-- ══ NAV ══ -->
+<nav id="mainNav" [style.box-shadow]="scrolled ? '0 4px 40px rgba(0,0,0,.5)' : 'none'">
+    <a href="#" class="nav-logo" (click)="scrollToTop($event)">
+        <img src="image/XR-logo.png" alt="XR Builders Logo" class="nav-logo-img" />
+        <div>
+            <div class="nav-logo-text">XR Builders</div>
+            <div class="nav-logo-sub">Immersive XR Solutions</div>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="#about" (click)="scrollTo($event, 'about')">About</a></li>
+        <li><a href="#xr" (click)="scrollTo($event, 'xr')">Solutions</a></li>
+        <li><a href="#industries" (click)="scrollTo($event, 'industries')">Industries</a></li>
+        <li><a href="#projects" (click)="scrollTo($event, 'projects')">Projects</a></li>
+        <li><a href="#product" (click)="scrollTo($event, 'product')">Product</a></li>
+        <li><a href="#contact" (click)="scrollTo($event, 'contact')">Contact</a></li>
+    </ul>
+    <a href="#contact" (click)="scrollTo($event, 'contact')" class="nav-cta">Get in Touch</a>
+</nav>
+
+<!-- ══ HERO ══ -->
+<div class="hero" id="hero">
+    <div class="hero-orb"></div>
+    <div class="hero-orb-2"></div>
+
+    <div class="hero-device">
+        <img src="image/XR-logo.png" alt="XR Builders - VR Headset Logo" />
+    </div>
+
+    <div class="hero-badge">XR Builders · Est. 2026 · Chennai</div>
+    <h1>XR BUILDERS</h1>
+    <div class="hero-sub">Immersive · Intelligent · Industrial XR</div>
+
+    <p class="hero-bio">
+        We design and build <span>enterprise-grade VR/AR/MR applications</span> for training, safety, simulation,
+        and education — delivering measurable outcomes across <span>12+ industries</span> through cutting-edge Unity
+        development and world-class instructional design.
+    </p>
+
+    <div class="hero-actions">
+        <a href="#xr" (click)="scrollTo($event, 'xr')" class="btn-primary">Explore XR Solutions →</a>
+        <a href="#contact" (click)="scrollTo($event, 'contact')" class="btn-secondary">Request a Demo</a>
+    </div>
+
+    <div class="hero-stats">
+        <div class="hero-stat"><span class="num">12+</span><span class="lbl">Industries Served</span></div>
+        <div class="hero-stat"><span class="num">VR/AR/MR</span><span class="lbl">XR Platforms</span></div>
+        <div class="hero-stat"><span class="num">20+</span><span class="lbl">Active Projects</span></div>
+        <div class="hero-stat"><span class="num">6</span><span class="lbl">XR Platforms</span></div>
+    </div>
+</div>
+
+<!-- TECH TICKER -->
+<div class="ticker-wrap">
+    <div class="ticker-track">
+        <span class="ticker-item"><span>◆</span>Unity 6</span>
+        <span class="ticker-item"><span>◆</span>Meta Quest</span>
+        <span class="ticker-item"><span>◆</span>HoloLens 2</span>
+        <span class="ticker-item"><span>◆</span>WebGL / WebXR</span>
+        <span class="ticker-item"><span>◆</span>HTC Vive</span>
+        <span class="ticker-item"><span>◆</span>Shader Graph</span>
+        <span class="ticker-item"><span>◆</span>VFX Graph</span>
+        <span class="ticker-item"><span>◆</span>XR Toolkit</span>
+        <span class="ticker-item"><span>◆</span>Photon SDK</span>
+        <span class="ticker-item"><span>◆</span>Blender</span>
+        <span class="ticker-item"><span>◆</span>Rhino 3D</span>
+        <span class="ticker-item"><span>◆</span>Pixyz Studio</span>
+        <span class="ticker-item"><span>◆</span>ARCore / ARKit</span>
+        <span class="ticker-item"><span>◆</span>Digital Twins</span>
+        <span class="ticker-item"><span>◆</span>C# / .NET</span>
+        <!-- repeat for seamless loop -->
+        <span class="ticker-item"><span>◆</span>Unity 6</span>
+        <span class="ticker-item"><span>◆</span>Meta Quest</span>
+        <span class="ticker-item"><span>◆</span>HoloLens 2</span>
+        <span class="ticker-item"><span>◆</span>WebGL / WebXR</span>
+        <span class="ticker-item"><span>◆</span>HTC Vive</span>
+        <span class="ticker-item"><span>◆</span>Shader Graph</span>
+        <span class="ticker-item"><span>◆</span>VFX Graph</span>
+        <span class="ticker-item"><span>◆</span>XR Toolkit</span>
+        <span class="ticker-item"><span>◆</span>Photon SDK</span>
+        <span class="ticker-item"><span>◆</span>Blender</span>
+        <span class="ticker-item"><span>◆</span>Rhino 3D</span>
+        <span class="ticker-item"><span>◆</span>Pixyz Studio</span>
+        <span class="ticker-item"><span>◆</span>ARCore / ARKit</span>
+        <span class="ticker-item"><span>◆</span>Digital Twins</span>
+        <span class="ticker-item"><span>◆</span>C# / .NET</span>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ══ ABOUT ══ -->
+<section id="about">
+    <div class="container">
+        <div class="section-tag reveal">Who We Are</div>
+        <h2 class="section-title reveal">Mission &amp; <span>Vision</span></h2>
+        <p class="section-desc reveal">XR Builders exists to make immersive technology accessible, impactful, and
+            measurable — transforming how industries train their people, and how institutions educate the next
+            generation.</p>
+        <div class="mv-grid">
+            <div class="panel mv-card reveal">
+                <div class="corner-tl"></div>
+                <div class="corner-br"></div>
+                <div class="mv-icon">◎</div>
+                <h3>Vision</h3>
+                <p>To be the leading XR studio that equips every organization with immersive tools for training,
+                    upskilling, and simulation — creating rich, engaged experiences that are accessible, repeatable,
+                    and outcome-driven for the 21st century workforce.</p>
+            </div>
+            <div class="panel mv-card reveal">
+                <div class="corner-tl"></div>
+                <div class="corner-br"></div>
+                <div class="mv-icon"
+                    style="border-color:var(--neon-green);color:var(--neon-green);background:rgba(0,255,136,0.05)">✦
+                </div>
+                <h3>Mission</h3>
+                <p>Build high-performance, enterprise-grade XR applications that deliver real results — measurable
+                    skill improvement, reduced training costs, and zero-risk exposure for high-stakes environments.
+                    We bridge the gap between technology and human potential through immersive design.</p>
+            </div>
+        </div>
+        <div class="overview-grid">
+            <div class="panel overview-item reveal">
+                <div class="overview-dot"></div>
+                <p><strong>VR/AR/MR development</strong> for industrial training, safety simulation, digital twins,
+                    and workforce upskilling across sectors.</p>
+            </div>
+            <div class="panel overview-item reveal">
+                <div class="overview-dot"></div>
+                <p><strong>WebGL &amp; WebXR</strong> content for browser-based training, eLearning platforms, and
+                    LMS-integrated interactive modules.</p>
+            </div>
+            <div class="panel overview-item reveal">
+                <div class="overview-dot"></div>
+                <p><strong>Performance analytics</strong> integration — every session tracked, scored, and reported
+                    for data-driven training management.</p>
+            </div>
+            <div class="panel overview-item reveal">
+                <div class="overview-dot"></div>
+                <p><strong>Cross-platform deployment</strong> to Meta Quest, HoloLens, HTC Vive, WebGL, Android and
+                    Windows from a single Unity codebase.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ XR SOLUTIONS ══ -->
+<section id="xr" style="background:rgba(0,245,255,0.01)">
+    <div class="container">
+        <div class="section-tag reveal">Technical Capabilities</div>
+        <h2 class="section-title reveal">What We <span>Build</span></h2>
+        <p class="section-desc reveal">A complete XR studio — Unity development, 3D art pipeline, instructional
+            design, and real-time analytics — all under one roof.</p>
+        <div class="services-grid">
+            <div class="panel service-card reveal">
+                <div class="corner-tl"></div><span class="service-num">01</span><span class="service-icon">🥽</span>
+                <h3>VR / AR / MR Training Simulations</h3>
+                <p>Immersive training with real-time VO feedback, performance scoring, and scenario-based assessment
+                    for safety, medical, and industrial domains.</p><span class="service-badge">High Impact</span>
+            </div>
+            <div class="panel service-card reveal">
+                <div class="corner-tl"></div><span class="service-num">02</span><span
+                    class="service-icon">🏛️</span>
+                <h3>Architectural &amp; Engineering Visualization</h3>
+                <p>Interactive 3D walkthroughs, physically-based lighting, and immersive structural visualization
+                    for design review and client communication.</p><span class="service-badge">3D Design</span>
+            </div>
+            <div class="panel service-card reveal">
+                <div class="corner-tl"></div><span class="service-num">03</span><span class="service-icon">🤖</span>
+                <h3>Digital Twins &amp; IoT Integration</h3>
+                <p>Live digital replicas of physical industrial systems integrating real sensor data for process
+                    monitoring, predictive maintenance, and operator training.</p><span
+                    class="service-badge">Industry 4.0</span>
+            </div>
+            <div class="panel service-card reveal">
+                <div class="corner-tl"></div><span class="service-num">04</span><span class="service-icon">🌐</span>
+                <h3>WebGL / WebXR eLearning</h3>
+                <p>Browser-based Unity content and interactive learning modules for DIKSHA, Moodle, and LMS
+                    platforms — zero install, maximum reach.</p><span class="service-badge">Web Ready</span>
+            </div>
+            <div class="panel service-card reveal">
+                <div class="corner-tl"></div><span class="service-num">05</span><span class="service-icon">📱</span>
+                <h3>Mobile AR Applications</h3>
+                <p>ARCore/ARKit apps overlaying instructional content onto real-world objects — enabling on-the-job
+                    guidance without headsets.</p><span class="service-badge">Cross-Platform</span>
+            </div>
+            <div class="panel service-card reveal">
+                <div class="corner-tl"></div><span class="service-num">06</span><span class="service-icon">🤝</span>
+                <h3>Multiplayer XR Simulations</h3>
+                <p>Networked collaborative XR environments enabling multiple learners to train together in shared
+                    virtual spaces — powered by Photon &amp; Unity Netcode.</p><span
+                    class="service-badge">Collaborative</span>
+            </div>
+            <div class="panel service-card reveal">
+                <div class="corner-tl"></div><span class="service-num">07</span><span class="service-icon">📊</span>
+                <h3>Analytics &amp; Report Generation</h3>
+                <p>Session-level performance dashboards, per-metric scoring, and auto-generated certificates —
+                    giving instructors actionable data, not just scores.</p><span
+                    class="service-badge">Data-Driven</span>
+            </div>
+            <div class="panel service-card reveal">
+                <div class="corner-tl"></div><span class="service-num">08</span><span class="service-icon">⚡</span>
+                <h3>Performance-Optimized XR</h3>
+                <p>VR-grade rendering optimisation for standalone headsets — draw call reduction, LOD management,
+                    GPU warmup, and foveated rendering for smooth 90fps.</p><span
+                    class="service-badge">VR-Grade</span>
+            </div>
+            <div class="panel service-card reveal">
+                <div class="corner-tl"></div><span class="service-num">09</span><span class="service-icon">🔧</span>
+                <h3>Custom XR Tooling &amp; Plugins</h3>
+                <p>Bespoke Unity Editor tools, custom shaders, physics rigs, and interaction systems tailored to the
+                    exact requirements of your training workflow.</p><span class="service-badge">Bespoke</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ SAFETY XR ══ -->
+<section id="safety" style="background:rgba(0,245,255,0.01);border-top:1px solid rgba(0,245,255,0.06)">
+    <div class="container">
+        <div class="section-tag reveal">Core Strength</div>
+        <h2 class="section-title reveal">XR for <span>Safety Training</span></h2>
+        <p class="section-desc reveal">Virtual Reality creates risk-free environments for high-stakes safety
+            training — reducing workplace accidents, cutting costs, and dramatically improving knowledge retention.
+        </p>
+        <div class="safety-layout">
+            <div class="safety-visual reveal">
+                <div class="safety-scene">
+                    <div class="safety-ring"></div>
+                    <div class="safety-ring"></div>
+                    <div class="safety-ring"></div>
+                    <div class="safety-center">🥽</div>
+                </div>
+                <div class="safety-labels">
+                    <div class="safety-label-item">HAZARD DETECTED</div>
+                    <div class="safety-label-item">SAFETY SCORE: 94%</div>
+                    <div class="safety-label-item">PROTOCOL ACTIVE</div>
+                    <div class="safety-label-item">IMMERSION: 100%</div>
+                </div>
+            </div>
+            <div class="safety-content reveal">
+                <h3>Why XR Safety Training Works</h3>
+                <ul class="safety-points">
+                    <li>
+                        <p><strong>Zero Risk, Full Exposure —</strong> Trainees experience catastrophic failure
+                            scenarios — chemical spills, equipment malfunctions, fire emergencies — with zero
+                            real-world danger.</p>
+                    </li>
+                    <li>
+                        <p><strong>Repeat on Demand —</strong> Unlike physical drills, XR scenarios run unlimited
+                            times, allowing trainees to practice until mastery is achieved.</p>
+                    </li>
+                    <li>
+                        <p><strong>Real-Time Performance Analytics —</strong> Every movement, decision, and response
+                            is captured — enabling data-driven assessment and targeted improvement.</p>
+                    </li>
+                    <li>
+                        <p><strong>75% Better Retention —</strong> VR-trained workers retain knowledge 75% longer
+                            than those trained with traditional methods.</p>
+                    </li>
+                    <li>
+                        <p><strong>Scalable Across Sites —</strong> Deploy the same certified training simulation to
+                            workers across multiple locations simultaneously.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ INDUSTRIES ══ -->
+<section id="industries" style="background:rgba(0,0,0,0.2)">
+    <div class="container">
+        <div class="section-tag reveal">Industry Applications</div>
+        <h2 class="section-title reveal">XR Across <span>Industries</span></h2>
+        <p class="section-desc reveal">Extended Reality is transforming how industries train their workforce,
+            conduct maintenance, collaborate on design, and simulate complex operations — across every major sector.
+        </p>
+        <div class="industries-grid">
+
+            <div class="panel ind-card reveal">
+                <div class="corner-tl"></div>
+                <span class="ind-icon">🏭</span>
+                <span class="ind-tag tag-cyan">Manufacturing</span>
+                <h4>Assembly &amp; Maintenance</h4>
+                <p>AR-guided step-by-step assembly, machine operator training, and preventive maintenance
+                    simulations — reducing onboarding time by 60%.</p>
+            </div>
+
+            <div class="panel ind-card reveal">
+                <div class="corner-tl"></div>
+                <span class="ind-icon">⚗️</span>
+                <span class="ind-tag tag-orange">Chemical &amp; Process</span>
+                <h4>Hazardous Environment Sim</h4>
+                <p>Train workers on chemical plant operations, emergency shutdowns, and spill response in fully
+                    simulated hazardous environments — safely and repeatedly.</p>
+            </div>
+
+            <div class="panel ind-card reveal">
+                <div class="corner-tl"></div>
+                <span class="ind-icon">🏗️</span>
+                <span class="ind-tag tag-green">Construction</span>
+                <h4>Site Safety &amp; BIM Viz</h4>
+                <p>Walk through Building Information Models in VR, identify safety hazards before ground is broken,
+                    and train workers on height, electrical, and equipment safety.</p>
+            </div>
+
+            <div class="panel ind-card reveal">
+                <div class="corner-tl"></div>
+                <span class="ind-icon">🏥</span>
+                <span class="ind-tag tag-cyan">Healthcare</span>
+                <h4>Clinical Skills &amp; Surgical Sim</h4>
+                <p>CPR training, surgical procedure rehearsal, patient handling, and emergency response simulation
+                    for medical students and clinical staff.</p>
+            </div>
+
+            <div class="panel ind-card reveal">
+                <div class="corner-tl"></div>
+                <span class="ind-icon">✈️</span>
+                <span class="ind-tag tag-purple">Defence &amp; Aviation</span>
+                <h4>Maintenance &amp; Mission Sim</h4>
+                <p>Aircraft component identification, maintenance procedures, and multiplayer mission rehearsal for
+                    defence and aviation professionals.</p>
+            </div>
+
+            <div class="panel ind-card reveal">
+                <div class="corner-tl"></div>
+                <span class="ind-icon">⚡</span>
+                <span class="ind-tag tag-yellow">Energy &amp; Utilities</span>
+                <h4>Power Plant &amp; Grid Training</h4>
+                <p>Train engineers on switchgear operations, transformer maintenance, and grid fault diagnosis
+                    through immersive XR simulations.</p>
+            </div>
+
+            <div class="panel ind-card reveal">
+                <div class="corner-tl"></div>
+                <span class="ind-icon">🛢️</span>
+                <span class="ind-tag tag-orange">Oil &amp; Gas</span>
+                <h4>Rig Operations &amp; Safety</h4>
+                <p>Offshore rig safety drills, blowout prevention training, pipeline inspection simulations, and
+                    confined space entry procedures — zero risk.</p>
+            </div>
+
+            <div class="panel ind-card reveal">
+                <div class="corner-tl"></div>
+                <span class="ind-icon">🚢</span>
+                <span class="ind-tag tag-cyan">Shipbuilding &amp; Marine</span>
+                <h4>Ship Design &amp; Safety Training</h4>
+                <p>VR walkthroughs of hull designs, AR-guided welding and pipe-fitting, confined space entry drills,
+                    and damage control simulations for shipyard crews.</p>
+            </div>
+
+            <div class="panel ind-card reveal">
+                <div class="corner-tl"></div>
+                <span class="ind-icon">🚒</span>
+                <span class="ind-tag tag-orange">Emergency Services</span>
+                <h4>First Responder Preparedness</h4>
+                <p>Firefighter, paramedic, and disaster response training in hyper-realistic simulated environments
+                    — building muscle memory for life-or-death decisions.</p>
+            </div>
+
+            <div class="panel ind-card reveal">
+                <div class="corner-tl"></div>
+                <span class="ind-icon">🚗</span>
+                <span class="ind-tag tag-green">Automotive</span>
+                <h4>Design Review &amp; Assembly</h4>
+                <p>Virtual vehicle design reviews, AR-assisted production line assembly, quality inspection
+                    training, and EV battery handling simulations.</p>
+            </div>
+
+            <div class="panel ind-card reveal">
+                <div class="corner-tl"></div>
+                <span class="ind-icon">⛏️</span>
+                <span class="ind-tag tag-yellow">Mining</span>
+                <h4>Underground &amp; Surface Safety</h4>
+                <p>Mine entry protocols, equipment operation training, emergency evacuation drills, and explosion
+                    risk identification in fully immersive underground environments.</p>
+            </div>
+
+            <div class="panel ind-card reveal">
+                <div class="corner-tl"></div>
+                <span class="ind-icon">🎓</span>
+                <span class="ind-tag tag-purple">Higher Education</span>
+                <h4>Virtual Labs &amp; Fieldwork</h4>
+                <p>Chemistry experiments, geological surveys, and biological dissections virtually — giving students
+                    experiential learning regardless of physical resource constraints.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ WHY XR WORKS ══ -->
+<section style="background:linear-gradient(180deg,rgba(0,255,136,0.03) 0%,transparent 100%)">
+    <div class="container">
+        <div class="section-tag reveal">Proven Results</div>
+        <h2 class="section-title reveal">Why Immersive Learning <span>Works</span></h2>
+        <p class="section-desc reveal">Research consistently shows that XR-based training outperforms conventional
+            methods across every key metric — retention, confidence, speed, and cost-effectiveness.</p>
+        <div class="impact-grid">
+            <div class="panel impact-card reveal">
+                <div class="corner-tl"></div><span class="impact-num">75%</span><span class="impact-label">Faster
+                    Learning</span>
+                <p class="impact-desc">VR learners train up to 4× faster than in traditional classroom or
+                    lecture-based settings.</p>
+            </div>
+            <div class="panel impact-card reveal">
+                <div class="corner-tl"></div><span class="impact-num">80%</span><span class="impact-label">Retention
+                    Rate</span>
+                <p class="impact-desc">Immersive XR experiences drive significantly higher long-term knowledge
+                    retention vs. e-learning.</p>
+            </div>
+            <div class="panel impact-card reveal">
+                <div class="corner-tl"></div><span class="impact-num">40%</span><span class="impact-label">Cost
+                    Reduction</span>
+                <p class="impact-desc">XR training reduces costs associated with physical props, travel, materials,
+                    and instructor time.</p>
+            </div>
+            <div class="panel impact-card reveal">
+                <div class="corner-tl"></div><span class="impact-num">275%</span><span
+                    class="impact-label">Confidence Boost</span>
+                <p class="impact-desc">VR-trained workers report significantly greater confidence applying skills on
+                    the job from day one.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ HOW WE WORK ══ -->
+<section
+    style="background:rgba(180,0,255,0.02);border-top:1px solid rgba(180,0,255,0.07);border-bottom:1px solid rgba(180,0,255,0.07)">
+    <div class="container">
+        <div class="section-tag reveal">Our Process</div>
+        <h2 class="section-title reveal">How We <span>Work</span></h2>
+        <p class="section-desc reveal">A structured five-stage process from discovery to deployment — ensuring every
+            XR solution we deliver is technically robust, pedagogically sound, and production-ready.</p>
+        <div class="process-steps">
+            <div class="process-step reveal">
+                <div class="step-circle">🔍</div>
+                <span class="step-num">STAGE 01</span>
+                <div class="step-label">Discovery &amp; Scoping</div>
+                <div class="step-desc">Workshop with your team to define training objectives, platform constraints,
+                    and success metrics.</div>
+            </div>
+            <div class="process-step reveal">
+                <div class="step-circle">📐</div>
+                <span class="step-num">STAGE 02</span>
+                <div class="step-label">Design &amp; Storyboard</div>
+                <div class="step-desc">Instructional design, interaction flow mapping, UI wireframes, and 3D
+                    environment planning.</div>
+            </div>
+            <div class="process-step reveal">
+                <div class="step-circle">🛠️</div>
+                <span class="step-num">STAGE 03</span>
+                <div class="step-label">Build &amp; Iterate</div>
+                <div class="step-desc">Unity development with bi-weekly client reviews, prototype testing, and
+                    feedback integration.</div>
+            </div>
+            <div class="process-step reveal">
+                <div class="step-circle">🧪</div>
+                <span class="step-num">STAGE 04</span>
+                <div class="step-label">QA &amp; Validation</div>
+                <div class="step-desc">Device testing across target platforms, performance profiling, and pedagogic
+                    effectiveness review.</div>
+            </div>
+            <div class="process-step reveal">
+                <div class="step-circle">🚀</div>
+                <span class="step-num">STAGE 05</span>
+                <div class="step-label">Deploy &amp; Support</div>
+                <div class="step-desc">Delivery to headsets or web, staff onboarding, and ongoing maintenance &amp;
+                    update support.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ TRUST STRIP ══ -->
+<div class="panel trust-strip"
+    style="border-radius:0;border-left:none;border-right:none;position:relative;z-index:1">
+    <div class="trust-item"><span class="trust-icon">🥽</span>Meta Quest Certified</div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><span class="trust-icon">🏛️</span>CTLVS — IIT Kharagpur</div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><span class="trust-icon">⚓</span>Indian Navy</div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><span class="trust-icon">⚡</span>NTPC &amp; L&amp;T</div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><span class="trust-icon">✈️</span>IDEX Defence UAE</div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><span class="trust-icon">📚</span>PSSCIVE / DIKSHA</div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ══ PROJECTS ══ -->
+<section id="projects" style="background:rgba(0,0,0,0.3)">
+    <div class="container">
+        <div class="section-tag reveal">Featured Work</div>
+        <h2 class="section-title reveal">Recent <span>Projects</span></h2>
+        <p class="section-desc reveal">A selection of impactful XR solutions delivered by XR Builders across
+            defence, energy, maritime, healthcare, and education sectors.</p>
+        <div class="projects-grid">
+
+            <div class="panel project-card reveal">
+                <div class="corner-tl"></div>
+                <div class="project-header-bar"><span class="project-num">PROJECT 01</span><span
+                        class="project-title-text">VR Welding Simulator — Meta Quest</span></div>
+                <div class="project-body">
+                    <p>A fully immersive VR welding training simulator with PPE training, hazard identification,
+                        machine setup, real-time analytics, auto report generation, and certification — deployed on
+                        Meta Quest (available free on Meta Horizon Store).</p>
+                    <div class="project-tags"><span class="ptag">Unity 6</span><span class="ptag">Meta
+                            Quest</span><span class="ptag">Analytics</span><span class="ptag">Certification</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel project-card reveal">
+                <div class="corner-tl"></div>
+                <div class="project-header-bar"><span class="project-num">PROJECT 02</span><span
+                        class="project-title-text">IDEX — Mirage 2000 Defence Training</span></div>
+                <div class="project-body">
+                    <p>Aircraft component identification and maintenance training for the Mirage 2000 using
+                        Hurricane VR physics, multiplayer collaboration via Netcode for GameObjects — deployed at
+                        IDEX UAE.</p>
+                    <div class="project-tags"><span class="ptag">Defence</span><span class="ptag">Hurricane
+                            VR</span><span class="ptag">Multiplayer</span><span class="ptag">Netcode</span></div>
+                </div>
+            </div>
+
+            <div class="panel project-card reveal">
+                <div class="corner-tl"></div>
+                <div class="project-header-bar"><span class="project-num">PROJECT 03</span><span
+                        class="project-title-text">Industrial Safety XR — NTPC &amp; L&amp;T</span></div>
+                <div class="project-body">
+                    <p>Immersive safety protocol training for large industrial facilities — real-time hazard
+                        identification, psychometric assessment systems, performance scoring, and electrical
+                        training simulations.</p>
+                    <div class="project-tags"><span class="ptag">VR/AR</span><span class="ptag">Safety</span><span
+                            class="ptag">Assessment</span><span class="ptag">Analytics</span></div>
+                </div>
+            </div>
+
+            <div class="panel project-card reveal">
+                <div class="corner-tl"></div>
+                <div class="project-header-bar"><span class="project-num">PROJECT 04</span><span
+                        class="project-title-text">Indian Navy — Maritime XR Training</span></div>
+                <div class="project-body">
+                    <p>Confined space entry simulators, ship visualization and walkthrough applications, and
+                        immersive vessel exploration for the Indian Navy and Cochin Shipyard Ltd.</p>
+                    <div class="project-tags"><span class="ptag">Maritime</span><span class="ptag">Confined
+                            Space</span><span class="ptag">Ship Viz</span><span class="ptag">HoloLens 2</span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ PRODUCT SECTION ══ -->
+<section id="product">
+    <div class="container">
+        <div class="section-tag reveal">Our Flagship Product</div>
+        <h2 class="section-title reveal">Featured <span>Product</span></h2>
+        <p class="section-desc reveal">Explore our ready-to-deploy, high-performance training solutions built for immediate industrial impact.</p>
+        
+        <div class="panel product-card reveal">
+            <div class="corner-tl"></div>
+            <div class="corner-br"></div>
+            <div class="product-info">
+                <h3>VR Welding Simulator</h3>
+                <p>Experience our state-of-the-art virtual reality welding application featuring real-time physics, hazard assessment, performance tracking, and automated evaluation metrics designed for standalone headset deployment.</p>
+            </div>
+            <a routerLink="/vr-welding-simulator" class="btn-product-launch">Show More Details →</a>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact" style="background:rgba(0,0,0,0.2)">
+    <div class="container">
+        <div class="section-tag reveal">Get in Touch</div>
+        <h2 class="section-title reveal">Contact <span>Us</span></h2>
+        <div class="contact-grid">
+
+            <div class="panel contact-info-panel reveal">
+                <div class="corner-tl"></div>
+                <h3>XR Builders</h3>
+                <p class="contact-tagline">Have a project in mind? Want a live demo? Or just want to explore how XR
+                    can transform your training pipeline? We'd love to hear from you.</p>
+
+                <div class="contact-row">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <div class="contact-label">Address</div>
+                        <div class="contact-val">XR Builders, Chennai – 600026, Tamil Nadu, India</div>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-val"><a href="mailto:contact@xrbuilders.net">contact&#64;xrbuilders.net</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <div class="contact-icon">🌐</div>
+                    <div>
+                        <div class="contact-label">Website</div>
+                        <div class="contact-val"><a href="https://www.xrbuilders.net"
+                                target="_blank">www.xrbuilders.net</a></div>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <div class="contact-icon">🕐</div>
+                    <div>
+                        <div class="contact-label">Working Hours</div>
+                        <div class="contact-val">Mon – Fri, 9:00 AM – 6:00 PM IST</div>
+                    </div>
+                </div>
+
+                <div class="contact-socials">
+                    <a href="mailto:contact@xrbuilders.net" class="social-btn">✉ Email</a>
+                    <a href="https://www.xrbuilders.net" target="_blank" class="social-btn">🌐 Website</a>
+                </div>
+            </div>
+
+            <div class="panel contact-form-panel reveal">
+                <div class="corner-tl"></div>
+                <h3>Send Us a Message</h3>
+            
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+                    <div class="form-grid-2">
+                        <div class="form-row">
+                            <label for="contactName">Full Name *</label>
+                            <input type="text" id="contactName" formControlName="name" placeholder="Your name"
+                                [class.invalid]="showError('name')" autocomplete="name" />
+                            @if (showError('name')) {
+                            <span class="field-error">{{ errorMessage('name') }}</span>
+                            }
+                        </div>
+                        <div class="form-row">
+                            <label for="contactEmail">Email Address *</label>
+                            <input type="email" id="contactEmail" formControlName="email" placeholder="you@company.com"
+                                [class.invalid]="showError('email')" autocomplete="email" />
+                            @if (showError('email')) {
+                            <span class="field-error">{{ errorMessage('email') }}</span>
+                            }
+                        </div>
+                    </div>
+            
+                    <div class="form-grid-2">
+                        <div class="form-row">
+                            <label for="contactOrg">Organisation</label>
+                            <input type="text" id="contactOrg" formControlName="organisation" placeholder="Company / Institution"
+                                [class.invalid]="showError('organisation')" autocomplete="organization" />
+                            @if (showError('organisation')) {
+                            <span class="field-error">{{ errorMessage('organisation') }}</span>
+                            }
+                        </div>
+                        <div class="form-row">
+                            <label for="contactInquiry">Inquiry Type</label>
+                            <select id="contactInquiry" formControlName="inquiryType">
+                                @for (opt of inquiryTypes; track opt) {
+                                <option [value]="opt">{{ opt }}</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-grid-2">
+                        <div class="form-row">
+                            <label for="countryCode">Country Code</label>
+                            <input type="text" id="countryCode" formControlName="countryCode" placeholder="+91"
+                                autocomplete="tel-country-code" maxlength="4" inputmode="tel"
+                                (input)="sanitizeCountryCode($event)" [class.invalid]="showError('countryCode')" />
+                            @if (showError('countryCode')) {
+                            <span class="field-error">{{ errorMessage('countryCode') }}</span>
+                            }
+                        </div>
+                        <div class="form-row">
+                            <label for="contactMobile">Mobile Number</label>
+                            <input type="tel" id="contactMobile" formControlName="mobileNumber"
+                                placeholder="9876543210" autocomplete="tel-national" maxlength="15" inputmode="numeric"
+                                (input)="sanitizeMobileNumber($event)"
+                                [class.invalid]="showError('mobileNumber')" />
+                            @if (showError('mobileNumber')) {
+                            <span class="field-error">{{ errorMessage('mobileNumber') }}</span>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="contactMessage">Message *</label>
+                        <textarea id="contactMessage" formControlName="message"
+                            placeholder="Tell us about your project, timeline, and requirements..."
+                            [class.invalid]="showError('message')"></textarea>
+                        @if (showError('message')) {
+                        <span class="field-error">{{ errorMessage('message') }}</span>
+                        }
+                    </div>
+            
+                    <button type="submit" class="submit-btn" [disabled]="sending" [class.sent]="sent">
+                        {{ sending ? 'Sending…' : sent ? 'Message Sent ✓' : 'Send Message →' }}
+                    </button>
+                </form>
+            
+                @if (sent) {
+                <div id="form-success">✓ &nbsp;Message sent successfully! We'll get back to you at the email you provided.</div>
+                }
+                @if (submitError) {
+                <div class="form-error">{{ submitError }}</div>
+                }
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h2>XR Builders</h2>
+                <p>Combining immersive XR technology with real-world industrial training to deliver scalable,
+                    measurable, and high-impact digital learning solutions across India and beyond.</p>
+                <div class="footer-contact-row">✉️ <a
+                        href="mailto:contact@xrbuilders.net">contact&#64;xrbuilders.net</a></div>
+                <div class="footer-contact-row">🌐 <a href="https://www.xrbuilders.net"
+                        target="_blank">www.xrbuilders.net</a></div>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <ul>
+                    <li>VR Training Simulations</li>
+                    <li>AR Field Applications</li>
+                    <li>Digital Twins</li>
+                    <li>WebXR eLearning</li>
+                    <li>Multiplayer XR</li>
+                    <li>Analytics &amp; Reporting</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Industries</h4>
+                <ul>
+                    <li>Manufacturing &amp; Industrial</li>
+                    <li>Defence &amp; Aviation</li>
+                    <li>Healthcare &amp; Medical</li>
+                    <li>Oil, Gas &amp; Energy</li>
+                    <li>Construction &amp; Mining</li>
+                    <li>Shipbuilding &amp; Marine</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Platforms</h4>
+                <ul>
+                    <li>Meta Quest 2 / 3 / Pro</li>
+                    <li>Microsoft HoloLens 2</li>
+                    <li>HTC Vive / Focus</li>
+                    <li>WebGL / WebXR</li>
+                    <li>Android AR</li>
+                    <li>Windows PC VR</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <span>© 2026 XR Builders. All rights reserved. · Chennai, India</span>
+            <span><a href="mailto:contact@xrbuilders.net"
+                    style="color:var(--neon-cyan);text-decoration:none">contact&#64;xrbuilders.net</a></span>
+        </div>
+    </div>
+</footer>
